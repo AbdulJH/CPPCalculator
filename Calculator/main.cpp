@@ -12,20 +12,7 @@ void printResult(double numOne, char op, double numTwo, double result)
     std::cout << numOne << ' ' << op << ' ' << numTwo << " = " << result;
 }
 
-int main()
-{
-    std::cout << "Enter your first number: ";
-    double userFirstNum{};
-    std::cin >> userFirstNum;
-
-    std::cout << "Choose your operand (+ , - , * , /): ";
-    char userOp{};
-    std::cin >> userOp;
-
-    std::cout << "Enter your second number: ";
-    double userSecondNum{};
-    std::cin >> userSecondNum;
-
+void doOperations(double userFirstNum, char userOp, double userSecondNum) {
     switch (userOp)
     {
     case '+':
@@ -44,6 +31,26 @@ int main()
         std::cout << "ERROR!!";
         break;
     }
+
+}
+
+int main()
+{
+    std::cout << "Enter your first number: ";
+    double userFirstNum{};
+    std::cin >> userFirstNum;
+
+    std::cout << "Choose your operand (+ , - , * , /): ";
+    char userOp{};
+    std::cin >> userOp;
+
+    std::cout << "Enter your second number: ";
+    double userSecondNum{};
+    std::cin >> userSecondNum;
+
+    doOperations(userFirstNum, userOp, userSecondNum);
+
+
 
 
     return 0;
