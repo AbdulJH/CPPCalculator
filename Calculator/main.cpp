@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cctype>
 #include "calculation.h"
 
 
@@ -12,7 +13,9 @@ void printResult(double numOne, char op, double numTwo, double result)
     std::cout << numOne << ' ' << op << ' ' << numTwo << " = " << result;
 }
 
-void doOperations(double userFirstNum, char userOp, double userSecondNum) {
+
+void doOperations(double userFirstNum, char userOp, double userSecondNum) 
+{
     switch (userOp)
     {
     case '+':
@@ -36,22 +39,41 @@ void doOperations(double userFirstNum, char userOp, double userSecondNum) {
 
 int main()
 {
-    std::cout << "Enter your first number: ";
-    double userFirstNum{};
-    std::cin >> userFirstNum;
 
-    std::cout << "Choose your operand (+ , - , * , /): ";
-    char userOp{};
-    std::cin >> userOp;
+    bool running = true;
 
-    std::cout << "Enter your second number: ";
-    double userSecondNum{};
-    std::cin >> userSecondNum;
+    while (running)
+    {
+        std::cout << "\n=== Calculator === \n";
 
-    doOperations(userFirstNum, userOp, userSecondNum);
+        std::cout << "Enter your first number (or 'q' to quit:) ";
+
+        std::cin >> std::ws;
+
+        if (std::tolower(std::cin.peek()) == 'q') {
+            running = false;
+            break;
+        }
 
 
+        double userFirstNum{};
+        std::cin >> userFirstNum;
 
+        std::cout << "Choose your operand (+ , - , * , /): ";
+        char userOp{};
+        std::cin >> userOp;
+
+        std::cout << "Enter your second number: ";
+        double userSecondNum{};
+        std::cin >> userSecondNum;
+
+        doOperations(userFirstNum, userOp, userSecondNum);
+
+    }
+
+    
+
+    std::cout << "Goodbye user!\n";
 
     return 0;
 }
