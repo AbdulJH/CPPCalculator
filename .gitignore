@@ -1,0 +1,13 @@
+# Visual Studio
+.vs/
+*.sln
+*.user
+*.userosscache
+*.suo
+
+# Build output
+bin/
+obj/
+
+# VS Code
+.vscode/
